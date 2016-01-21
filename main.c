@@ -26,6 +26,12 @@ const int EMPTY = 0;
 
 int board [25];
 
+/*Function Protypes*/
+
+void Initiallise_board(int);
+void printBoard(const int);
+
+
 const int ConvertToGameSquares[9] = {
 	6,7,8,
 	11,12,13,
@@ -33,13 +39,13 @@ const int ConvertToGameSquares[9] = {
 };
 
 void Initiallise_board(int *board){
-
-    for(int i = 0; i < 25; ++ i){
+	int i = 0; 
+    for(i = 0; i < 25; ++ i){
 
         board[i] = BORDER;
         }
 
-    for (int i = 0; i < 9; ++i){
+    for (i = 0; i < 9; ++i){
 
         board[ConvertToGameSquares[i]] = EMPTY;
     }
@@ -47,8 +53,9 @@ void Initiallise_board(int *board){
 }
 
 void printBoard (const int * board){
-    printf("\nBoard:\n");
-    for(int i = 0; i <25; ++i){
+    int i = 0; 
+	printf("\nBoard:\n");
+    for(i = 0; i <25; ++i){
         if(i!=0 && i % 5 == 0){
             printf("\n");          
         }
@@ -65,8 +72,9 @@ int main(int argc, char** argv) {
 
     int board[25];
     Initiallise_board(&board[0]);
-
+	printBoard(&board[0]);
 
     return (EXIT_SUCCESS);
 }
+
 

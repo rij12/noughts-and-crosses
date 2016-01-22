@@ -57,14 +57,14 @@ void initialise_board(int *board){
 
 void print_board (const int * board){
     int i = 0;
-	printf("\nBoard:\n");
+	printf("\nBoard:\n ");
     for(i = 0; i <25; ++i){
         if(i!=0 && i % 5 == 0){
             printf(" \n ");
         }
         printf(" %d ", board[i]);
     }
-    printf("\n");
+    printf(" \n ");
 }
 
 void run_game(){
@@ -91,7 +91,7 @@ void run_game(){
 
 	  }
   }
-}
+
 
 
 

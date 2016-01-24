@@ -35,7 +35,7 @@ void initialise_board(int*);
 void print_board(const int*);
 void run_game();
 
-const int Convert_to_game_squares[9] = {
+const int convert_to_game_squares[9] = {
 	6,7,8,
 	11,12,13,
 	16,17,18
@@ -50,21 +50,22 @@ void initialise_board(int *board){
 
     for (i = 0; i < 9; ++i){
 
-        board[Convert_to_game_squares[i]] = EMPTY;
+        board[convert_to_game_squares[i]] = EMPTY;
     }
 
 }
 
 void print_board (const int * board){
-    int i = 0;
-	printf("\nBoard:\n ");
-    for(i = 0; i <25; ++i){
-        if(i!=0 && i % 5 == 0){
-            printf(" \n ");
+  int i = 0;
+  char game_peices[] = "OX|-";
+	printf("\nBoard:\n\n");
+    for(i = 0; i <9; ++i){
+        if(i != 0 && i % 3 == 0){
+            printf("\n\n");
         }
-        printf(" %d ", board[i]);
+        printf("%4c", game_peices[board[convert_to_game_squares[i]]]);
     }
-    printf(" \n ");
+    printf("\n");
 }
 
 void run_game(){

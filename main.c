@@ -24,8 +24,8 @@ int board[25] = {
 
 /*enums*/
 
-enum {EMPTY, NOUGHTS, CROSSES, BORDER };
-enum {HUMAN_WIN, CPU_WIN, DRAW};
+enum { NOUGHTS, CROSSES, BORDER, EMPTY };
+enum { HUMANWIN, COMPWIN, DRAW };
 
 int board [25];
 
@@ -55,18 +55,61 @@ void initialise_board(int *board){
 
 }
 
+/* Loops though the game board, and print the correct board out to the command line. */
 void print_board (const int * board){
+
   int i = 0;
-  char game_peices[] = "OX|-";
-	printf("\nBoard:\n\n");
-    for(i = 0; i <9; ++i){
+  char game_peices [] = "OX|-";
+	printf("\n\nBoard:\n");
+    for(i = 0; i <9; i++){
         if(i != 0 && i % 3 == 0){
             printf("\n\n");
         }
-        printf("%4c", game_peices[board[convert_to_game_squares[i]]]);
+       printf("%4c", game_peices[board[convert_to_game_squares[i]]]);
     }
     printf("\n");
 }
+
+/* Loop though the game square, if an empty square is found the return 1 else return 0 */
+int is_empty (int *board){
+
+  int i = 0; 
+  for(board[convert_to_game_squares[i]] == EMPTY){
+    return 1;
+    }
+  return 0; 
+}
+
+/*
+* The board at the square, 
+*/
+void make_move(int *board, const int square, const int side){
+
+    board[square] = side; 
+
+
+}
+
+/*Get move from the player*/
+
+int get_human_move(const int *board){
+
+  char user_input[4];
+  int valid_move = 0;
+  int invalid_move = -1; 
+
+  while(valid_move == 0){
+
+    printf("Please enter a move from 1 tp 9: ");
+    fgets(user_input,3,stdin);
+    
+    fscanf();
+
+
+  }
+
+}
+
 
 void run_game(){
 
@@ -97,7 +140,7 @@ void run_game(){
 
 
 int main(int argc, char** argv) {
-	srand(time(NULL));
+//	srand(time(NULL));
 	run_game();
 
     return (EXIT_SUCCESS);
